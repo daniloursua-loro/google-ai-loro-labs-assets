@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loro Labs - Color Palette</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #FFF7E6;
+            padding: 60px 40px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #3A352D;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 1.125rem;
+            color: #666;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .palette-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #3A352D;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .color-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .color-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .color-swatch {
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .color-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-info {
+            background: white;
+            padding: 20px 24px;
+        }
+
+        .color-hex {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #3A352D;
+            font-family: 'Courier New', monospace;
+        }
+
+        .color-rgb {
+            font-size: 0.875rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .copy-notification {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: #3A352D;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            text-align: center;
+            color: #666;
+            font-size: 0.875rem;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 2px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>color palette</h1>
+            <p class="description">
+                This color palette is inspired by the colorful feathers of the loro. This palette is designed to be simple, friendly, and straightforward, making it easy to connect with while conveying a variety of positive emotions.
+            </p>
+        </header>
+
+        <section class="palette-section">
+            <h2 class="section-title">Primary Colors</h2>
+            <div class="color-grid">
+                <div class="color-card" onclick="copyColor('#F92C53', 'LORO Red')">
+                    <div class="color-swatch" style="background: #F92C53;">
+                        <span class="color-name">LORO Red</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#F92C53</div>
+                        <div class="color-rgb">RGB(249, 44, 83)</div>
+                    </div>
+                </div>
+
+                <div class="color-card" onclick="copyColor('#56A9D8', 'LORO Blue')">
+                    <div class="color-swatch" style="background: #56A9D8;">
+                        <span class="color-name">LORO Blue</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#56A9D8</div>
+                        <div class="color-rgb">RGB(86, 169, 216)</div>
+                    </div>
+                </div>
+
+                <div class="color-card" onclick="copyColor('#FD8F41', 'Warmth')">
+                    <div class="color-swatch" style="background: #FD8F41;">
+                        <span class="color-name">Warmth</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#FD8F41</div>
+                        <div class="color-rgb">RGB(253, 143, 65)</div>
+                    </div>
+                </div>
+
+                <div class="color-card" onclick="copyColor('#EEAB21', 'Joy')">
+                    <div class="color-swatch" style="background: #EEAB21;">
+                        <span class="color-name">Joy</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#EEAB21</div>
+                        <div class="color-rgb">RGB(238, 171, 33)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="palette-section">
+            <h2 class="section-title">Secondary Colors</h2>
+            <div class="color-grid">
+                <div class="color-card" onclick="copyColor('#04A38C', 'Cool')">
+                    <div class="color-swatch" style="background: #04A38C;">
+                        <span class="color-name">Cool</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#04A38C</div>
+                        <div class="color-rgb">RGB(4, 163, 140)</div>
+                    </div>
+                </div>
+
+                <div class="color-card" onclick="copyColor('#94C932', 'Fresh')">
+                    <div class="color-swatch" style="background: #94C932;">
+                        <span class="color-name">Fresh</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#94C932</div>
+                        <div class="color-rgb">RGB(148, 201, 50)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="palette-section">
+            <h2 class="section-title">Neutrals</h2>
+            <div class="color-grid">
+                <div class="color-card" onclick="copyColor('#3A352D', 'Dark Grey')">
+                    <div class="color-swatch" style="background: #3A352D;">
+                        <span class="color-name">Dark Grey</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#3A352D</div>
+                        <div class="color-rgb">RGB(58, 53, 45)</div>
+                    </div>
+                </div>
+
+                <div class="color-card" onclick="copyColor('#FFF7E6', 'Warm White')">
+                    <div class="color-swatch" style="background: #FFF7E6;">
+                        <span class="color-name" style="color: #3A352D; text-shadow: none;">Warm White</span>
+                    </div>
+                    <div class="color-info">
+                        <div class="color-hex">#FFF7E6</div>
+                        <div class="color-rgb">RGB(255, 247, 230)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 Loro Labs Studio. All rights reserved.</p>
+            <p style="margin-top: 8px;">Click any color to copy its hex code 🎨</p>
+        </footer>
+    </div>
+
+    <div class="copy-notification" id="copyNotification">
+        <span id="copyText">Copied to clipboard!</span>
+    </div>
+
+    <script>
+        function copyColor(hex, name) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const notification = document.getElementById('copyNotification');
+                const copyText = document.getElementById('copyText');
+                copyText.textContent = `${name} (${hex}) copied!`;
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
